@@ -1,11 +1,12 @@
 {
   "background": {
-    "service_worker": "src/App.js"
+    "service_worker": "src/contentScript.js"
   },
   "manifest_version": 3,
   "name": "Linkedin Scrapper",
   "version": "1.0.1",
   "action": {
     "default_popup": "src/index.html"
-  }
+  },
+  "permissions": ["scripting", "activeTab"]
 }
