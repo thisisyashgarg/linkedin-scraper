@@ -1,13 +1,11 @@
 {
-  "name": "My Extension",
-  "version": "1.0",
+  "background": {
+    "service_worker": "src/App.js"
+  },
   "manifest_version": 3,
-  "description": "This extension displays a text message.",
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "js": ["src/App.js"]
-    }
-  ],
-  "permissions": ["tabs"]
+  "name": "Linkedin Scrapper",
+  "version": "1.0.1",
+  "action": {
+    "default_popup": "src/index.html"
+  }
 }
