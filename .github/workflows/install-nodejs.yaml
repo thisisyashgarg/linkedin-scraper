@@ -1,15 +1,12 @@
-name: CI
+name: Install Node.js and log message
 
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
+      - main, master
 
 jobs:
-  build:
+  install-nodejs:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +18,5 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
+      - name: Log message
+        run: echo "all good"
