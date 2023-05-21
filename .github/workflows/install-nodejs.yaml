@@ -3,7 +3,7 @@ name: Install Node.js and log message
 on:
   push:
     branches:
-      - main, master
+      - master
 
 jobs:
   install-nodejs:
