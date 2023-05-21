@@ -1,20 +1,23 @@
-button.addEventListener("click", async () => {
-  const insightsBox = document.getElementById("insights");
-  const htmlData = await getHTMLData();
-  insightsBox.innerHTML = htmlData;
-});
+if (typeof window !== "undefined") {
+  document.getElementById("button").addEventListener("click", async () => {
+    const insightsBox = document.getElementById("insights");
+    const htmlData = await getHTMLData();
+    insightsBox.innerHTML = htmlData;
+  });
+}
 
 function DOMtoString(selector) {
   if (selector) {
-    selector = document.querySelector(selector);
+    target = document.querySelector(selector);
     if (!selector) return "ERROR: querySelector failed to find node";
   } else {
-    selector = document.documentElement;
+    target = document.documentElement;
   }
-  return selector.outerHTML;
+  console.log("target", target.innerHTML);
+  return target.innerHTML;
 }
 
-async function getHTMLData(insightsBox) {
+async function getHTMLData() {
   const response = await chrome.tabs
     .query({ active: true, currentWindow: true })
     .then((tabs) => {
@@ -28,7 +31,8 @@ async function getHTMLData(insightsBox) {
         args: ["body"], // you can use this to target what element to get the html for
       });
     });
-
+  console.log("response", response);
   const htmlData = await response[0].result;
+  // const rawData = await response;
   return htmlData;
 }
